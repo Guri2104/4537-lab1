@@ -15,6 +15,7 @@
     </div>
 
     <script>
+        
         function readDB(){
             const xhttp = new XMLHttpRequest();
             
@@ -29,6 +30,8 @@
                 }
             }
         }
+
+        window.onload = readDB;
     </script>
 
 </body>
