@@ -14,26 +14,7 @@
 
     </div>
 
-    <script>
-        
-        function readDB(){
-            const xhttp = new XMLHttpRequest();
-            
-            xhttp.open("GET", "https://karelc.com/COMP4537/labs/5/readDB", true);
-            xhttp.send();
-            xhttp.onreadystatechange = () => {
-                if(this.readyState == 4 && this.status == 200) {
-                    const response = JSON.parse(this.responseText);
-                    console.log(response);
-                    response.forEach(row => {
-                        document.getElementById("values").innerHTML += row["name"] + ": " + row["score"] + "\n";
-                    });
-                }
-            }
-        }
-
-        window.onload = readDB;
-    </script>
-
 </body>
+
+<script src="./js/read.js"></script>
 </html>

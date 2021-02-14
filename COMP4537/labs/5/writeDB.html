@@ -23,21 +23,6 @@
 
     </div>
 
-    <script>
-        function writeDB(){
-            const xhttp = new XMLHttpRequest();
-            const name = document.getElementById("name").value;
-            const score = document.getElementById("score").value;
-            
-            xhttp.open("GET", "https://karelc.com/COMP4537/labs/5/writeDB?name=" + name + "&score=" + score, true);
-            xhttp.send();
-            xhttp.onreadystatechange = () => {
-                if(this.readyState == 4 && this.status == 200) {
-                    document.getElementById("result-msg").innerHTML = this.responseText
-                }
-            }
-        }
-    </script>
-
+    <script src="./js/write.js"></script>
 </body>
 </html>
