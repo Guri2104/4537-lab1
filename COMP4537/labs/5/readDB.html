@@ -24,6 +24,7 @@
             xhttp.onreadystatechange = () => {
                 if(this.readyState == 4 && this.status == 200) {
                     const response = JSON.parse(this.responseText);
+                    console.log(response);
                     response.forEach(row => {
                         document.getElementById("values").innerHTML += row["name"] + ": " + row["score"] + "\n";
                     });
