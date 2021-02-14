@@ -18,7 +18,7 @@
         function readDB(){
             const xhttp = new XMLHttpRequest();
             
-            xhttp.open("GET", "karelc.com/COMP4537/labs/5/readDB", true);
+            xhttp.open("GET", "https://karelc.com/COMP4537/labs/5/readDB", true);
             xhttp.send();
             xhttp.onreadystatechange = () => {
                 if(this.readyState == 4 && this.status == 200) {
