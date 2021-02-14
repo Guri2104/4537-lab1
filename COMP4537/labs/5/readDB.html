@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Read to DB</title>
+</head>
+<body>
+    
+    <div id="heading">
+        <h2>Scores DB:</h2>
+    </div><br><br>
+    <div id="values"></div>
+
+    </div>
+
+    <script>
+        function readDB(){
+            const xhttp = new XMLHttpRequest();
+            
+            xhttp.open("GET", "karelc.com/COMP4537/labs/5/readDB", true);
+            xhttp.send();
+            xhttp.onreadystatechange = () => {
+                if(this.readyState == 4 && this.status == 200) {
+                    const response = JSON.parse(this.responseText);
+                    response.forEach(row => {
+                        document.getElementById("values").innerHTML += row["name"] + ": " + row["score"] + "\n";
+                    });
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

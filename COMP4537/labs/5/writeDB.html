@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Write to DB</title>
+</head>
+<body>
+    
+    <div id="heading">
+        <h2>Add Scores to DB:</h2>
+    </div>
+    <div id="input-fields">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="score">Score:</label>
+        <input type="text" id="score" name="score"><br><br>
+    </div>
+
+    <button type="button" onclick="writeDB()">Store in DB</button><br><br>
+
+    <div id="result-msg">
+
+    </div>
+
+    <script>
+        function writeDB(){
+            const xhttp = new XMLHttpRequest();
+            const name = document.getElementById("name").value;
+            const score = document.getElementById("score").value;
+            
+            xhttp.open("GET", "karelc.com/COMP4537/labs/5/writeDB?name=" + name + "&score=" + score, true);
+            xhttp.send();
+            xhttp.onreadystatechange = () => {
+                if(this.readyState == 4 && this.status == 200) {
+                    document.getElementById("result-msg").innerHTML = this.responseText
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
